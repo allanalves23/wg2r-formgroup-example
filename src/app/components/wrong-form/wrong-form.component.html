@@ -1,0 +1,33 @@
+<app-header
+  title="Exemplo de formulário"
+  description="A forma errada usando ngModel isoladamente"
+></app-header>
+<div class="p-5">
+  <form>
+    <div class="form-group">
+      <label for="wg2r-name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="wg2r-name"
+        [(ngModel)]="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="wg2r-last-name">Lastname</label>
+      <input
+        type="text"
+        class="form-control"
+        id="wg2r-last-name"
+        [(ngModel)]="lastname"
+      />
+    </div>
+    <div class="form-group">
+      <label for="wg2r-gender">Gender</label>
+      <select class="form-control" id="wg2r-gender" [(ngModel)]="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+  </form>
+</div>

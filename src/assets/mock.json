@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Rick",
+    "lastname": "Jackson",
+    "age": 22,
+    "gender": "male"
+  },
+  {
+    "id": 2,
+    "name": "Patrick",
+    "lastname": "Jane",
+    "age": 35,
+    "gender": "male"
+  },
+  {
+    "id": 3,
+    "name": "Martha",
+    "lastname": "Ansen",
+    "age": 28,
+    "gender": "female"
+  },
+  {
+    "id": 4,
+    "name": "Carl",
+    "lastname": "Webber",
+    "age": 31,
+    "gender": "male"
+  },
+  {
+    "id": 5,
+    "name": "Janice",
+    "lastname": "Button",
+    "age": 49,
+    "gender": "female"
+  }
+]
