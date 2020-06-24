@@ -2,15 +2,16 @@
   title="Exemplo de formulário - Forma deselegante"
   description="A forma errada usando ngModel isoladamente"
 ></app-header>
+
 <div class="px-5">
   <div class="form-group">
     <label for="wg2r-name">Nome</label>
     <input type="text" class="form-control" id="wg2r-name" [(ngModel)]="name" />
   </div>
   <div class="form-group">
-    <label for="wg2r-last-name">Email</label>
+    <label for="wg2r-last-name">E-mail</label>
     <input
-      type="text"
+      type="email"
       class="form-control"
       id="wg2r-last-name"
       [(ngModel)]="email"
@@ -21,10 +22,10 @@
     <input type="number" class="form-control" id="wg2r-age" [(ngModel)]="age" />
   </div>
   <div class="form-group">
-    <label for="wg2r-gender">Gender</label>
+    <label for="wg2r-gender">Gênero</label>
     <select class="form-control" id="wg2r-gender" [(ngModel)]="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
+      <option value="male">Masculino</option>
+      <option value="female">Feminino</option>
     </select>
   </div>
 

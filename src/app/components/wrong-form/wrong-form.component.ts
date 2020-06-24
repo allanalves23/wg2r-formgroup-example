@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Gender } from "src/app/models/GenderEnum";
 import { ActivatedRoute } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
+import { UserModel } from "src/app/models/UserModel";
 
 @Component({
   selector: "app-wrong-form",
@@ -26,8 +27,8 @@ export class WrongFormComponent implements OnInit {
     this.getUser(id);
   }
 
-  getUser(userId) {
-    this.userService.get(userId, (response) => {
+  getUser(userId: number): void {
+    this.userService.get(userId, (response: UserModel) => {
       this.name = response.name;
       this.email = response.email;
       this.age = response.age;
@@ -35,7 +36,7 @@ export class WrongFormComponent implements OnInit {
     });
   }
 
-  toogleResults() {
+  toogleResults(): void {
     this.showResults = !this.showResults;
   }
 }

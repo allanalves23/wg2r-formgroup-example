@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UserModel } from "src/app/models/UserModel";
 
 @Component({
   selector: "app-correct-form",
@@ -24,29 +25,29 @@ export class CorrectFormComponent implements OnInit {
     this.getUser(id);
   }
 
-  prepareForm() {
+  prepareForm(): void {
     this.userForm = this.formBuilder.group({
       id: [null],
       name: [null, [Validators.required]],
-      email: [null, [Validators.email]],
+      email: [null, [Validators.email, Validators.required]],
       age: [null, [Validators.min(0), Validators.max(200)]],
       gender: [null, [Validators.required]],
     });
   }
 
-  getUser(userId) {
+  getUser(userId: number): void {
     this.userService.get(userId, (response) => {
       this.userForm.setValue(response);
     });
   }
 
-  submit() {
+  submit(): void {
     if (!this.showResults) {
       this.toogleResults();
     }
   }
 
-  toogleResults() {
+  toogleResults(): void {
     this.showResults = !this.showResults;
     if (!this.showResults) {
       this.userForm.reset();
