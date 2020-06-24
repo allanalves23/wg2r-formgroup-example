@@ -2,35 +2,35 @@
   {
     "id": 1,
     "name": "Rick",
-    "lastname": "Jackson",
+    "email": "rick@wg2r.com",
     "age": 22,
     "gender": "male"
   },
   {
     "id": 2,
     "name": "Patrick",
-    "lastname": "Jane",
+    "email": "patrick@wg2r.com",
     "age": 35,
     "gender": "male"
   },
   {
     "id": 3,
     "name": "Martha",
-    "lastname": "Ansen",
+    "email": "martha@wg2r.com",
     "age": 28,
     "gender": "female"
   },
   {
     "id": 4,
     "name": "Carl",
-    "lastname": "Webber",
+    "email": "carl@wg2r.com",
     "age": 31,
     "gender": "male"
   },
   {
     "id": 5,
     "name": "Janice",
-    "lastname": "Button",
+    "email": "janice@wg2r.com",
     "age": 49,
     "gender": "female"
   }

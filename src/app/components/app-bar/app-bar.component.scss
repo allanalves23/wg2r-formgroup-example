@@ -1,0 +1,24 @@
+$height: 56px;
+
+.wg2r-app-bar {
+  padding: 0rem 1rem;
+}
+
+.wg2r-app-bar-actions {
+  display: flex;
+  align-items: center;
+  height: $height;
+}
+
+.wg2r-link {
+  font-size: 0.95rem;
+  transition: ease-in 200ms;
+  height: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  &:hover {
+    background-color: rgba($color: #091c38, $alpha: 0.5);
+  }
+}

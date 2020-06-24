@@ -1,7 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
-import { AppComponent } from "./app.component";
 import { CorrectFormComponent } from "./components/correct-form/correct-form.component";
 import { WrongFormComponent } from "./components/wrong-form/wrong-form.component";
 
@@ -12,11 +10,11 @@ const routes: Routes = [
     redirectTo: "wrong-form",
   },
   {
-    path: "correct-form",
+    path: "correct-form/:id",
     component: CorrectFormComponent,
   },
   {
-    path: "wrong-form",
+    path: "wrong-form/:id",
     component: WrongFormComponent,
   },
 ];

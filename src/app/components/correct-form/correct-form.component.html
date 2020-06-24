@@ -1,23 +1,105 @@
 <app-header
-  title="Exemplo de formulário"
+  title="Exemplo de formulário - Forma ideal"
   description="A forma ideal usando o FormBuilder"
 ></app-header>
-<div class="p-5">
-  <form>
+
+<div class="px-5">
+  <form [formGroup]="userForm" (submit)="submit()">
     <div class="form-group">
-      <label for="wg2r-name">Name</label>
-      <input type="text" class="form-control" id="wg2r-name" />
+      <label for="wg2r-name">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="wg2r-name"
+        formControlName="name"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="userForm.get('name').errors?.required"
+      >
+        <small>
+          Nome é obrigatório
+        </small>
+      </div>
     </div>
     <div class="form-group">
-      <label for="wg2r-last-name">Lastname</label>
-      <input type="text" class="form-control" id="wg2r-last-name" />
+      <label for="wg2r-last-name">E-mail</label>
+      <input
+        type="text"
+        class="form-control"
+        id="wg2r-last-name"
+        formControlName="email"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="userForm.get('email').errors?.email"
+      >
+        <small>
+          E-mail inválido
+        </small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="wg2r-age">Age</label>
+      <input
+        type="number"
+        class="form-control"
+        id="wg2r-age"
+        formControlName="age"
+      />
+      <div
+        class="form-text text-danger"
+        *ngIf="
+          userForm.get('age').errors?.min || userForm.get('age').errors?.max
+        "
+      >
+        <small>
+          A idade deve estar entre 0 e 200 anos
+        </small>
+      </div>
     </div>
     <div class="form-group">
       <label for="wg2r-gender">Gender</label>
-      <select class="form-control" id="wg2r-gender">
+      <select class="form-control" id="wg2r-gender" formControlName="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
     </div>
+
+    <div class="form-group d-flex justify-content-end">
+      <button
+        class="btn btn-secondary mr-3"
+        type="button"
+        (click)="toogleResults()"
+        *ngIf="showResults"
+      >
+        Fechar
+      </button>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="userForm.invalid"
+      >
+        Salvar
+      </button>
+    </div>
+
+    <blockquote class="wg2r-blockquote" *ngIf="showResults">
+      <span>{{ "{" }}</span>
+      <br />
+      <span class="wg2r-json-property">name: </span>
+      <code>{{ userForm.get("name").value }}</code
+      ><br />
+      <span class="wg2r-json-property">email: </span
+      ><code>{{ userForm.get("email").value }}</code
+      ><br />
+      <span class="wg2r-json-property">age: </span
+      ><code>{{ userForm.get("age").value }}</code
+      ><br />
+      <span class="wg2r-json-property">gender: </span
+      ><code>{{ userForm.get("gender").value }}</code
+      ><br />
+      <span>{{ "}" }}</span>
+    </blockquote>
   </form>
 </div>
