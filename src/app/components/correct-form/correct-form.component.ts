@@ -1,17 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { UserService } from "src/app/services/user.service";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { UserModel } from "src/app/models/UserModel";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { invalidEmailValidator } from 'src/app/shared/validators';
 
 @Component({
-  selector: "app-correct-form",
-  templateUrl: "./correct-form.component.html",
-  styleUrls: ["./correct-form.component.scss"],
+  selector: 'app-correct-form',
+  templateUrl: './correct-form.component.html',
+  styleUrls: ['./correct-form.component.scss'],
 })
 export class CorrectFormComponent implements OnInit {
   userForm: FormGroup;
-  showResults: boolean = false;
+  showResults = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,13 +23,14 @@ export class CorrectFormComponent implements OnInit {
     const id = this.route.snapshot.params.id;
     this.prepareForm();
     this.getUser(id);
+    console.log(this.userForm.get('email'));
   }
 
   prepareForm(): void {
     this.userForm = this.formBuilder.group({
       id: [null],
       name: [null, [Validators.required]],
-      email: [null, [Validators.email, Validators.required]],
+      email: [null, [invalidEmailValidator(), Validators.required]],
       age: [null, [Validators.min(0), Validators.max(200)]],
       gender: [null, [Validators.required]],
     });

@@ -1,4 +1,4 @@
-import { Gender } from "./GenderEnum";
+import { Gender } from './GenderEnum';
 
 export class UserModel {
   id: number;
