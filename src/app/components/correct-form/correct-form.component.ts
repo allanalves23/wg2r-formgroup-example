@@ -23,7 +23,6 @@ export class CorrectFormComponent implements OnInit {
     const id = this.route.snapshot.params.id;
     this.prepareForm();
     this.getUser(id);
-    console.log(this.userForm.get('email'));
   }
 
   prepareForm(): void {
