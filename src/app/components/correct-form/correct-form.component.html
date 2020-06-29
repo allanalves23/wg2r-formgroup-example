@@ -4,7 +4,7 @@
 ></app-header>
 
 <div class="px-5">
-  <form [formGroup]="userForm" (submit)="submit()">
+  <form #form="ngForm" [formGroup]="userForm" (submit)="submit()">
     <div class="form-group">
       <label for="wg2r-name">Nome</label>
       <input
@@ -15,7 +15,7 @@
       />
       <div
         class="form-text text-danger"
-        *ngIf="userForm.get('name').errors?.required"
+        *ngIf="userForm.get('name').errors?.required && form.submitted"
       >
         <small>
           Nome é obrigatório
@@ -32,7 +32,7 @@
       />
       <div
         class="form-text text-danger"
-        *ngIf="userForm.get('email').errors?.invalidEmail"
+        *ngIf="userForm.get('email').errors?.invalidEmail && form.submitted"
       >
         <small>
           E-mail inválido
@@ -50,7 +50,7 @@
       <div
         class="form-text text-danger"
         *ngIf="
-          userForm.get('age').errors?.min || userForm.get('age').errors?.max
+          (userForm.get('age').errors?.min || userForm.get('age').errors?.max) && form.submitted
         "
       >
         <small>
@@ -78,7 +78,7 @@
       <button
         class="btn btn-primary"
         type="submit"
-        [disabled]="userForm.invalid"
+        [disabled]="userForm.invalid && form.submitted"
       >
         Salvar
       </button>
