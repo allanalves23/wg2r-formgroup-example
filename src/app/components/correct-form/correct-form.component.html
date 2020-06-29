@@ -15,7 +15,7 @@
       />
       <div
         class="form-text text-danger"
-        *ngIf="userForm.get('name').errors?.required && form.submitted"
+        *ngIf="userForm.get('name').errors?.required && (form.submitted || userForm.get('name').touched)"
       >
         <small>
           Nome é obrigatório
